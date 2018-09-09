@@ -1,9 +1,5 @@
 package core;
 
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertNotEquals;
-
 import java.util.Collection;
 
 import junit.framework.TestCase;
@@ -11,7 +7,7 @@ import junit.framework.TestCase;
 public class CardDeckTest extends TestCase{
 	
 	// Test getDeck
-	public void TestgetDeck() {
+	public void testGetDeck() {
 		CardDeck deck = new CardDeck();
 		
 		// Make sure it returns something
@@ -25,7 +21,7 @@ public class CardDeckTest extends TestCase{
 	}
 	
 	//Test shuffle
-	public void TestShuffle() {
+	public void testShuffle() {
 		CardDeck deck = new CardDeck();
 		
 		Collection arr = deck.getDeck();
@@ -42,7 +38,7 @@ public class CardDeckTest extends TestCase{
 			temp2 += e.toString();
 		}
 		
-	    assertNotEquals(false, temp1.compareTo(temp2)==0);
+	    assertEquals(false, temp1.compareTo(temp2)==0);
 	}
 	
 	
