@@ -28,7 +28,7 @@ public class CardDeckTest extends TestCase{
 	public void testShuffle() {
 		CardDeck deck = new CardDeck();
 
-		Collection arr = deck.getDeck();
+		Collection<Card> arr = deck.getDeck();
 		deck.shuffle();
 
 		String temp1 = "";
@@ -43,23 +43,6 @@ public class CardDeckTest extends TestCase{
 		}
 
 		assertEquals(false, temp1.compareTo(temp2)==0);
-	}
-
-	public void testRandomlyBind() {
-		CardDeck deck = new CardDeck();
-		char [] arr1 = {'A','B','C','D','E','F','G','H','I','J','K','L','N'};
-		char [] arr2 = {'M','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-
-		char [] arr3 = deck.randomlyBind(arr1,arr2);
-
-		int idx = 0;
-
-		for(char x = 'A'; x <= 'Z'; x++) {
-			assertEquals(false, (arr1.toString().compareTo(arr2.toString())==0));
-		}
-
-
-
 	}
 
 

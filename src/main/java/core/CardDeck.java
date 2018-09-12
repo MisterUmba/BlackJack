@@ -28,6 +28,7 @@ public class CardDeck {
 
 	// Constructors
 	public CardDeck() {
+		rand = new Random();
 		deck = new ArrayList<>();
 		
 		// initialize 
@@ -45,22 +46,16 @@ public class CardDeck {
 	}
 	
 	// shuffle()
-	public void shuffle() {
-		shuffle(deck.toArray());
-	}
-	
-	private <T> T[] shuffle(T[] subDeck) {
-		if(subDeck.length == 1)
-			return subDeck;
+	public <T> void shuffle() {
 		
-		T[] right = Arrays.copyOfRange(subDeck, 0, subDeck.length/2);
-		T[] left = Arrays.copyOfRange(subDeck, subDeck.length/2, subDeck.length);
+		ArrayList temp = new ArrayList();
 		
-		shuffle(right);
-		shuffle(left);
+		while(!deck.isEmpty()) {
+			temp.add(deck.remove(rand.nextInt(deck.size())));
+		}
 		
-		
-		
+		deck = temp;
+				
 	}
 	
 	
