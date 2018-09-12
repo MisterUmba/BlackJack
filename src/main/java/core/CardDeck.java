@@ -41,7 +41,7 @@ public class CardDeck {
 	}
 	
 	// getDeck()
-	public Collection<Card> getDeck(){
+	public ArrayList<Card> getDeck(){
 		return deck;
 	}
 	

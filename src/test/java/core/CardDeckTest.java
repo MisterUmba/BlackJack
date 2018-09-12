@@ -44,6 +44,105 @@ public class CardDeckTest extends TestCase{
 
 		assertEquals(false, temp1.compareTo(temp2)==0);
 	}
+	
+	public void testGivePlayerCards() {
+		CardDeck deck = new CardDeck();
+		
+		CardDeck.Card temp;
+		
+		temp =  deck.getDeck().get(0);
+		
+		deck.givePlayerCards(temp);
+		
+		assertEquals(temp, deck.getPlayer().get(0));
+		
+		assertEquals(51, deck.getDeck().size());
+		
+		assertEquals(1, deck.getPlayer().size());
+	}
+	
+	public void testGiveDealerCards() {
+		CardDeck deck = new CardDeck();
+		
+		CardDeck.Card temp;
+		
+		temp =  deck.getDeck().get(0);
+		
+		deck.giveDealerCards(temp);
+		
+		assertEquals(temp, deck.getDealer().get(0));
+		
+		assertEquals(51, deck.getDeck().size());
+		
+		assertEquals(1, deck.getDealer().size());
+	}
+	
+	public void testClearPlayerCards() {
+		CardDeck deck = new CardDeck();
+		
+		for(CardDeck.Card e: deck.getDeck()) {
+			deck.givePlayerCards(e);
+		}
+		
+		assertEquals(52, deck.getPlayer().size());
+		
+		deck.getPlayer().clear();
+		
+		assertEquals(0, deck.getPlayer().size());
+	}
+	
+	public void testClearDealerCards() {
+		CardDeck deck = new CardDeck();
+		
+		for(CardDeck.Card e: deck.getDeck()) {
+			deck.giveDealerCards(e);
+		}
+		
+		assertEquals(52, deck.getDealer().size());
+		
+		deck.getDealer().clear();
+		
+		assertEquals(0, deck.getDealer().size());
+	}
+	
+	public void testReturnCardsToDeck() {
+		CardDeck deck = new CardDeck();
+		
+		for(int x = 0; x< deck.getDeck().size()/2; x++) {
+			deck.getPlayer().add(deck.getDeck().get(x));
+		}
+		
+		for(int x = deck.getDeck().size()/2; x< deck.getDeck().size(); x++) {
+			deck.getDealer().add(deck.getDeck().get(x));
+		}
+		
+		deck.removeUsedCards();
+		
+		assertEquals(0, deck.getDeck().size());
+		
+		assertEquals(52, deck.getUsedCards().size());
+		
+		deck.returnCardsToDeck();
+		
+		assertEquals(52, deck.getDeck().size());
+		
+		assertEquals(0, deck.getUsedCards().size());
+
+	}
+	
+	public void testRemoveUsedCards() {
+		CardDeck deck = new CardDeck();
+		
+		deck.givePlayerCards(deck.getDeck().get(0));
+		deck.givePlayerCards(deck.getDeck().get(1));
+		
+		deck.giveDealerCards(deck.getDeck().get(2));
+		deck.giveDealerCards(deck.getDeck().get(3));
+		
+		deck.removeUsedCards();
+		
+		assertEquals(4, deck.getUsedCards().size());
+	}
 
 
 }
