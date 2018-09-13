@@ -121,33 +121,47 @@ public class CardDeckTest extends TestCase{
 			temp = e.toString();
 			switch (temp) {
 				case "HA":
-					assertEquals(11, e.getValue(e, false));
+					assertEquals(11, e.getValue(false));
+					break;
 				case "S2":
-					assertEquals(2, e.getValue(e, false));
+					assertEquals(2, e.getValue(false));
+					break;
 				case "D3":
-					assertEquals(3, e.getValue(e, false));
+					assertEquals(3, e.getValue(false));
+					break;
 				case "C4":
-					assertEquals(4, e.getValue(e, false));
+					assertEquals(4, e.getValue(false));
+					break;
 				case "H5":
-					assertEquals(5, e.getValue(e, false));
+					assertEquals(5, e.getValue(false));
+					break;
 				case "S6":
-					assertEquals(6, e.getValue(e, false));
+					assertEquals(6, e.getValue(false));
+					break;
 				case "D7":
-					assertEquals(7, e.getValue(e, false));
+					assertEquals(7, e.getValue(false));
+					break;
 				case "C8":
-					assertEquals(8, e.getValue(e, false));
+					assertEquals(8, e.getValue(false));
+					break;
 				case "H9":
-					assertEquals(9, e.getValue(e, false));
+					assertEquals(9, e.getValue(false));
+					break;
 				case "S10":
-					assertEquals(10, e.getValue(e, false));
+					assertEquals(10, e.getValue(false));
+					break;
 				case "DJ":
-					assertEquals(10, e.getValue(e, false));
+					assertEquals(10, e.getValue(false));
+					break;
 				case "CQ":
-					assertEquals(10, e.getValue(e, false));
+					assertEquals(10, e.getValue(false));
+					break;
 				case "HK":
-					assertEquals(10, e.getValue(e, false));
+					assertEquals(10, e.getValue(false));
+					break;
 				case "SA":
-					assertEquals(1, e.getValue(e, true));
+					assertEquals(1, e.getValue(true));
+					break;
 			}
 				
 		}

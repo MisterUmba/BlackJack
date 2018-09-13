@@ -19,7 +19,126 @@ public class CardDeck {
 			this.suit = suit;
 		}
 		
-		
+		public int getValue(boolean isAceOne) {
+			String temp = this.toString();
+			
+			switch (temp) {
+			case "HA":
+				if(isAceOne)
+					return 1;
+				return 11;
+			case "CA":
+				if(isAceOne)
+					return 1;
+				return 11;
+			case "DA":
+				if(isAceOne)
+					return 1;
+				return 11;
+			case "SA":
+				if(isAceOne)
+					return 1;
+				return 11;
+			case "H2":
+				return 2;
+			case "C2":
+				return 2;
+			case "D2":
+				return 2;
+			case "S2":
+				return 2;
+			case "H3":
+				return 3;
+			case "C3":
+				return 3;
+			case "D3":
+				return 3;
+			case "S3":
+				return 3;
+			case "H4":
+				return 4;
+			case "C4":
+				return 4;
+			case "D4":
+				return 4;
+			case "S4":
+				return 4;
+			case "H5":
+				return 5;
+			case "C5":
+				return 5;
+			case "D5":
+				return 5;
+			case "S5":
+				return 5;
+			case "H6":
+				return 6;
+			case "C6":
+				return 6;
+			case "D6":
+				return 6;
+			case "S6":
+				return 6;
+			case "H7":
+				return 7;
+			case "C7":
+				return 7;
+			case "D7":
+				return 7;
+			case "S7":
+				return 7;
+			case "H8":
+				return 8;
+			case "C8":
+				return 8;
+			case "D8":
+				return 8;
+			case "S8":
+				return 8;
+			case "H9":
+				return 9;
+			case "C9":
+				return 9;
+			case "D9":
+				return 9;
+			case "S9":
+				return 9;
+			case "H10":
+				return 10;
+			case "C10":
+				return 10;
+			case "D10":
+				return 10;
+			case "S10":
+				return 10;
+			case "HJ":
+				return 10;
+			case "CJ":
+				return 10;
+			case "DJ":
+				return 10;
+			case "SJ":
+				return 10;
+			case "HQ":
+				return 10;
+			case "CQ":
+				return 10;
+			case "DQ":
+				return 10;
+			case "SQ":
+				return 10;
+			case "HK":
+				return 10;
+			case "CK":
+				return 10;
+			case "DK":
+				return 10;
+			case "SK":
+				return 10;
+			}
+			
+			return -1;
+		}
 		
 		public String toString() {
 			return suit+rank;
