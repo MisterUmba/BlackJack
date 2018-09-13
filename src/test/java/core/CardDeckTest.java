@@ -166,6 +166,25 @@ public class CardDeckTest extends TestCase{
 				
 		}
 	}
+	
+	public void testGetValueOfPlayerHand() {
+		CardDeck deck = new CardDeck();
+		
+		deck.givePlayerCards(deck.getDeck().remove(0));
+		deck.givePlayerCards(deck.getDeck().remove(deck.getDeck().size()-1));
+		
+		assertEquals(21, deck.getValueOfPlayerHand());
+	}
+	
+	public void testGetValueOfDealerHand() {
+		CardDeck deck = new CardDeck();
+		
+		deck.giveDealerCards(deck.getDeck().remove(0));
+		deck.giveDealerCards(deck.getDeck().remove(deck.getDeck().size()-1));
+		
+		assertEquals(21, deck.getValueOfDealerHand());
+
+	}
 
 
 }
