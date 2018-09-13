@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 import core.CardDeck.Card;
@@ -12,10 +13,13 @@ public class CardDeck {
 		String rank;
 		char suit;
 		
+		
 		public Card(String rank, char suit) {
 			this.rank = rank;
 			this.suit = suit;
 		}
+		
+		
 		
 		public String toString() {
 			return suit+rank;

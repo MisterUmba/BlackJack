@@ -112,6 +112,46 @@ public class CardDeckTest extends TestCase{
 		
 		assertEquals(4, deck.getUsedCards().size());
 	}
+	
+	public void testValue() {
+		CardDeck deck = new CardDeck();
+		String temp;
+		
+		for(CardDeck.Card e: deck.getDeck()) {
+			temp = e.toString();
+			switch (temp) {
+				case "HA":
+					assertEquals(11, e.getValue(e, false));
+				case "S2":
+					assertEquals(2, e.getValue(e, false));
+				case "D3":
+					assertEquals(3, e.getValue(e, false));
+				case "C4":
+					assertEquals(4, e.getValue(e, false));
+				case "H5":
+					assertEquals(5, e.getValue(e, false));
+				case "S6":
+					assertEquals(6, e.getValue(e, false));
+				case "D7":
+					assertEquals(7, e.getValue(e, false));
+				case "C8":
+					assertEquals(8, e.getValue(e, false));
+				case "H9":
+					assertEquals(9, e.getValue(e, false));
+				case "S10":
+					assertEquals(10, e.getValue(e, false));
+				case "DJ":
+					assertEquals(10, e.getValue(e, false));
+				case "CQ":
+					assertEquals(10, e.getValue(e, false));
+				case "HK":
+					assertEquals(10, e.getValue(e, false));
+				case "SA":
+					assertEquals(1, e.getValue(e, true));
+			}
+				
+		}
+	}
 
 
 }
