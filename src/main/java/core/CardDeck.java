@@ -184,6 +184,7 @@ public class CardDeck {
 	public void giveDealerCards(Card e) {dealer.add(deck.remove(0));}
 	
 	
+	
 	public void removeUsedCards() {
 		if(!(player.isEmpty() && dealer.isEmpty())) {
 			if(!player.isEmpty()) {
@@ -218,6 +219,17 @@ public class CardDeck {
 		
 		deck = temp;
 				
+	}
+	
+	
+	// Get player hand sum
+	public int getValueOfPlayerHand() {
+		
+	}
+	
+	// Get Dealer hand sum
+	public int getValueOfDealerHand() {
+		
 	}
 	
 	
