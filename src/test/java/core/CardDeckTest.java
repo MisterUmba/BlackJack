@@ -77,33 +77,6 @@ public class CardDeckTest extends TestCase{
 		assertEquals(1, deck.getDealer().size());
 	}
 	
-	public void testClearPlayerCards() {
-		CardDeck deck = new CardDeck();
-		
-		for(CardDeck.Card e: deck.getDeck()) {
-			deck.givePlayerCards(e);
-		}
-		
-		assertEquals(52, deck.getPlayer().size());
-		
-		deck.getPlayer().clear();
-		
-		assertEquals(0, deck.getPlayer().size());
-	}
-	
-	public void testClearDealerCards() {
-		CardDeck deck = new CardDeck();
-		
-		for(CardDeck.Card e: deck.getDeck()) {
-			deck.giveDealerCards(e);
-		}
-		
-		assertEquals(52, deck.getDealer().size());
-		
-		deck.getDealer().clear();
-		
-		assertEquals(0, deck.getDealer().size());
-	}
 	
 	public void testReturnCardsToDeck() {
 		CardDeck deck = new CardDeck();
