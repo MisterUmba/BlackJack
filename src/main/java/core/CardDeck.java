@@ -1,9 +1,9 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Random;
+
+import core.CardDeck.Card;
 
 public class CardDeck {
 	
@@ -62,25 +62,32 @@ public class CardDeck {
 	
 	
 	public void removeUsedCards() {
-		for(int x = 0; x< player.size(); x++) {
-			usedCards.add(player.remove(x));
-		}
-		
-		for(int x = 0; x< dealer.size();x++) {
-			usedCards.add(dealer.remove(x));
+		if(!(player.isEmpty() && dealer.isEmpty())) {
+			if(!player.isEmpty()) {
+				for(Card e: player) 
+					usedCards.add(e);
+				player.clear();
+			}
+			
+			if(!dealer.isEmpty()) {
+				for(Card e: dealer) 
+					usedCards.add(e);
+				dealer.clear();
+			}
 		}
 	}
 	
 	public void returnCardsToDeck() {
-		for(int x = 0; x< usedCards.size(); x++) {
-			deck.add(usedCards.remove(x));
-		}
+		for(int x = 0; x< usedCards.size(); x++)
+			deck.add(usedCards.get(x));
+		usedCards.clear();
+		
 	}
 	
 	// shuffle()
-	public <T> void shuffle() {
+	public void shuffle() {
 		
-		ArrayList temp = new ArrayList();
+		ArrayList<Card> temp = new ArrayList<>();
 		
 		while(!deck.isEmpty()) {
 			temp.add(deck.remove(rand.nextInt(deck.size())));

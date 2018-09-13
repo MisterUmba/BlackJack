@@ -81,12 +81,8 @@ public class CardDeckTest extends TestCase{
 	public void testReturnCardsToDeck() {
 		CardDeck deck = new CardDeck();
 		
-		for(int x = 0; x< deck.getDeck().size()/2; x++) {
-			deck.getPlayer().add(deck.getDeck().get(x));
-		}
-		
-		for(int x = deck.getDeck().size()/2; x< deck.getDeck().size(); x++) {
-			deck.getDealer().add(deck.getDeck().get(x));
+		for(int x = deck.getDeck().size()-1; x > -1; x--) {
+			deck.getDealer().add(deck.getDeck().remove(x));
 		}
 		
 		deck.removeUsedCards();
