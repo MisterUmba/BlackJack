@@ -1,10 +1,7 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
-
-import core.CardDeck.Card;
 
 public class CardDeck {
 	
@@ -179,11 +176,23 @@ public class CardDeck {
 	
 	
 	
-	public void givePlayerCards(Card e) { player.add(deck.remove(0));}
+	public void givePlayerCards() { player.add(deck.remove(deck.size()-1));}
 	
-	public void giveDealerCards(Card e) {dealer.add(deck.remove(0));}
+	public void giveDealerCards() {dealer.add(deck.remove(deck.size()-1));}
 	
+	public boolean playerContainAce() {
+		for(Card e: player)
+			if( e.toString().equals("HA") || e.toString().equals("DA") || e.toString().equals("SA") || e.toString().equals("CA") )
+				return true;
+		return false;
+	}
 	
+	public boolean dealerContainAce() {
+		for(Card e: dealer) 
+			if( e.toString().equals("HA") || e.toString().equals("DA") || e.toString().equals("SA") || e.toString().equals("CA") )
+				return true;
+		return false;
+	}
 	
 	public void removeUsedCards() {
 		if(!(player.isEmpty() && dealer.isEmpty())) {
@@ -224,12 +233,34 @@ public class CardDeck {
 	
 	// Get player hand sum
 	public int getValueOfPlayerHand() {
+		int sum = 0;
 		
+		for(Card e: player)
+			sum += e.getValue(false);
+		
+		if(playerContainAce() && (sum>21)) {
+			sum = 0;
+			for(Card e: player)
+				sum += e.getValue(true);
+		}
+		
+		return sum;
 	}
 	
 	// Get Dealer hand sum
 	public int getValueOfDealerHand() {
-		
+		int sum = 0;
+
+		for(Card e: dealer)
+			sum += e.getValue(false);
+
+		if(dealerContainAce() && (sum>21)) {
+			sum = 0;
+			for(Card e: dealer)
+				sum += e.getValue(true);
+		}
+
+		return sum;
 	}
 	
 	

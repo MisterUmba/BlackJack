@@ -52,11 +52,11 @@ public class CardDeckTest extends TestCase{
 		
 		temp =  deck.getDeck().get(0);
 		
-		deck.givePlayerCards(temp);
+		deck.getPlayer().add(deck.getDeck().get(0));
 		
 		assertEquals(temp, deck.getPlayer().get(0));
 		
-		assertEquals(51, deck.getDeck().size());
+		assertEquals(52, deck.getDeck().size());
 		
 		assertEquals(1, deck.getPlayer().size());
 	}
@@ -68,11 +68,11 @@ public class CardDeckTest extends TestCase{
 		
 		temp =  deck.getDeck().get(0);
 		
-		deck.giveDealerCards(temp);
+		deck.getDealer().add(deck.getDeck().get(0));
 		
 		assertEquals(temp, deck.getDealer().get(0));
 		
-		assertEquals(51, deck.getDeck().size());
+		assertEquals(52, deck.getDeck().size());
 		
 		assertEquals(1, deck.getDealer().size());
 	}
@@ -102,11 +102,11 @@ public class CardDeckTest extends TestCase{
 	public void testRemoveUsedCards() {
 		CardDeck deck = new CardDeck();
 		
-		deck.givePlayerCards(deck.getDeck().get(0));
-		deck.givePlayerCards(deck.getDeck().get(1));
+		deck.givePlayerCards();
+		deck.givePlayerCards();
 		
-		deck.giveDealerCards(deck.getDeck().get(2));
-		deck.giveDealerCards(deck.getDeck().get(3));
+		deck.giveDealerCards();
+		deck.giveDealerCards();
 		
 		deck.removeUsedCards();
 		
@@ -170,8 +170,10 @@ public class CardDeckTest extends TestCase{
 	public void testGetValueOfPlayerHand() {
 		CardDeck deck = new CardDeck();
 		
-		deck.givePlayerCards(deck.getDeck().remove(0));
-		deck.givePlayerCards(deck.getDeck().remove(deck.getDeck().size()-1));
+		
+		deck.getPlayer().add(deck.getDeck().get(0));
+		deck.getPlayer().add(deck.getDeck().get(51));
+		
 		
 		assertEquals(21, deck.getValueOfPlayerHand());
 	}
@@ -179,8 +181,8 @@ public class CardDeckTest extends TestCase{
 	public void testGetValueOfDealerHand() {
 		CardDeck deck = new CardDeck();
 		
-		deck.giveDealerCards(deck.getDeck().remove(0));
-		deck.giveDealerCards(deck.getDeck().remove(deck.getDeck().size()-1));
+		deck.getDealer().add(deck.getDeck().remove(0));
+		deck.getDealer().add(deck.getDeck().remove(deck.getDeck().size()-1));
 		
 		assertEquals(21, deck.getValueOfDealerHand());
 
@@ -191,7 +193,8 @@ public class CardDeckTest extends TestCase{
 		
 		assertEquals(false, deck.playerContainAce());
 		
-		deck.givePlayerCards(deck.getDeck().remove(0));
+		deck.getPlayer().add(deck.getDeck().get(0));
+		
 		
 		assertEquals(true, deck.playerContainAce());
 	}
@@ -201,7 +204,7 @@ public class CardDeckTest extends TestCase{
 		
 		assertEquals(false, deck.dealerContainAce());
 		
-		deck.giveDealerCards(deck.getDeck().remove(0));
+		deck.getDealer().add(deck.getDeck().get(0));
 		
 		assertEquals(true, deck.dealerContainAce());
 	}
