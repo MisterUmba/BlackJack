@@ -9,7 +9,7 @@ public class GameCasesTest extends TestCase{
 		// Player black-Jack
 	public void testPlayerBlackJack() {
 		CardDeck temp = new CardDeck();
-		GameCases gameCase = new GameCases();
+		GameCases gameCase = new GameCases(temp);
 		
 		temp.getPlayer().add(temp.getDeck().get(0));
 		temp.getPlayer().add(temp.getDeck().get(51));
@@ -20,7 +20,7 @@ public class GameCasesTest extends TestCase{
 		// Player higher Hand
 	public void testPlayerHigherHand() {
 		CardDeck temp = new CardDeck();
-		GameCases gameCase = new GameCases();
+		GameCases gameCase = new GameCases(temp);
 		
 		temp.getPlayer().add(temp.getDeck().get(51));
 		temp.getPlayer().add(temp.getDeck().get(50));
@@ -38,7 +38,7 @@ public class GameCasesTest extends TestCase{
 		// Dealer black-Jack
 	public void testDealerBlackJack() {
 		CardDeck temp = new CardDeck();
-		GameCases gameCase = new GameCases();
+		GameCases gameCase = new GameCases(temp);
 		
 		temp.getDealer().add(temp.getDeck().get(0));
 		temp.getDealer().add(temp.getDeck().get(51));
@@ -49,7 +49,7 @@ public class GameCasesTest extends TestCase{
 		// Dealer higher Hand
 	public void testDealerHigherHand() {
 		CardDeck temp = new CardDeck();
-		GameCases gameCase = new GameCases();
+		GameCases gameCase = new GameCases(temp);
 		
 		temp.getPlayer().add(temp.getDeck().get(4));
 		temp.getPlayer().add(temp.getDeck().get(5));
