@@ -199,6 +199,22 @@ public class CardDeckTest extends TestCase{
 		assertEquals(true, deck.playerContainAce());
 	}
 	
+	public void testPlayerHasTens() {
+		CardDeck deck = new CardDeck();
+		
+		deck.getPlayer().add(deck.getDeck().get(51));
+		
+		assertEquals(true, deck.playerHasTens());
+	}
+	
+	public void testDealerHasTens() {
+		CardDeck deck = new CardDeck();
+		
+		deck.getDealer().add(deck.getDeck().get(51));
+		
+		assertEquals(true, deck.dealerHasTens());
+	}
+	
 	public void testDealerContainAce() {
 		CardDeck deck = new CardDeck();
 		

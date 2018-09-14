@@ -8,7 +8,7 @@ public class GameCases {
 	}
 	
 	public boolean playerBlackJack() {
-		
+		// Player has a black Jack and Dealer Doesn't
 		return false;
 	}
 	

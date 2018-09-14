@@ -194,6 +194,7 @@ public class CardDeck {
 		return false;
 	}
 	
+	
 	public void removeUsedCards() {
 		if(!(player.isEmpty() && dealer.isEmpty())) {
 			if(!player.isEmpty()) {
