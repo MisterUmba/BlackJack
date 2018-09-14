@@ -194,6 +194,22 @@ public class CardDeck {
 		return false;
 	}
 	
+	public boolean playerHasTens() {
+		
+		for(Card e: player) 
+			if(e.toString().contains("K") || e.toString().contains("Q") || e.toString().contains("J") || e.toString().contains("10"))
+				return true;
+		return false;
+	}
+	
+	public boolean dealerHasTens() {
+		
+		for(Card e: dealer) 
+			if(e.toString().contains("K") || e.toString().contains("Q") || e.toString().contains("J") || e.toString().contains("10"))
+				return true;
+		return false;
+
+	}
 	
 	public void removeUsedCards() {
 		if(!(player.isEmpty() && dealer.isEmpty())) {

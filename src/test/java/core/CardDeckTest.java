@@ -205,6 +205,11 @@ public class CardDeckTest extends TestCase{
 		deck.getPlayer().add(deck.getDeck().get(51));
 		
 		assertEquals(true, deck.playerHasTens());
+		deck.removeUsedCards();
+		
+		deck.getPlayer().add(deck.getDeck().get(40));
+		
+		assertEquals(true, deck.playerHasTens());
 	}
 	
 	public void testDealerHasTens() {
