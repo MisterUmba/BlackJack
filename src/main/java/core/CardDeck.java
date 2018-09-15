@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CardDeck {
-	
+
 	// Defining a Card
 	public class Card{
 		String rank;
 		char suit;
-		
-		
+
+
 		public Card(String rank, char suit) {
 			this.rank = rank;
 			this.suit = suit;
 		}
-		
+
 		public int getValue(boolean isAceOne) {
 			String temp = this.toString();
-			
 			switch (temp) {
 			case "HA":
 				if(isAceOne)
@@ -133,15 +132,14 @@ public class CardDeck {
 			case "SK":
 				return 10;
 			}
-			
 			return -1;
 		}
-		
+
 		public String toString() {
 			return suit+rank;
 		}
 	}
-	
+
 	// Attributes / properties
 	private ArrayList<Card> deck;
 	private Random rand;
@@ -156,7 +154,7 @@ public class CardDeck {
 		player = new ArrayList<>();
 		dealer = new ArrayList<>();
 		usedCards = new ArrayList<>();
-		
+
 		// initialize 
 		char [] suits = {'H','C','D','S'};
 		String [] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
@@ -165,52 +163,49 @@ public class CardDeck {
 				deck.add(new Card(r, s));
 			}
 	}
-	
+
 	public ArrayList<Card> getPlayer(){return player;}
-	
+
 	public ArrayList<Card> getDealer(){return dealer;}
-	
+
 	public ArrayList<Card> getUsedCards(){return usedCards;}
-	
+
 	public ArrayList<Card> getDeck(){return deck;}
-	
-	
-	
+
+
+
 	public void givePlayerCards() { player.add(deck.remove(deck.size()-1));}
-	
+
 	public void giveDealerCards() {dealer.add(deck.remove(deck.size()-1));}
-	
+
 	public boolean playerContainAce() {
 		for(Card e: player)
 			if( e.toString().equals("HA") || e.toString().equals("DA") || e.toString().equals("SA") || e.toString().equals("CA") )
 				return true;
 		return false;
 	}
-	
+
 	public boolean dealerContainAce() {
 		for(Card e: dealer) 
 			if( e.toString().equals("HA") || e.toString().equals("DA") || e.toString().equals("SA") || e.toString().equals("CA") )
 				return true;
 		return false;
 	}
-	
+
 	public boolean playerHasTens() {
-		
 		for(Card e: player) 
 			if(e.toString().contains("K") || e.toString().contains("Q") || e.toString().contains("J") || e.toString().contains("10"))
 				return true;
 		return false;
 	}
-	
+
 	public boolean dealerHasTens() {
-		
 		for(Card e: dealer) 
 			if(e.toString().contains("K") || e.toString().contains("Q") || e.toString().contains("J") || e.toString().contains("10"))
 				return true;
 		return false;
-
 	}
-	
+
 	public void removeUsedCards() {
 		if(!(player.isEmpty() && dealer.isEmpty())) {
 			if(!player.isEmpty()) {
@@ -218,7 +213,6 @@ public class CardDeck {
 					usedCards.add(e);
 				player.clear();
 			}
-			
 			if(!dealer.isEmpty()) {
 				for(Card e: dealer) 
 					usedCards.add(e);
@@ -226,59 +220,44 @@ public class CardDeck {
 			}
 		}
 	}
-	
+
 	public void returnCardsToDeck() {
 		for(int x = 0; x< usedCards.size(); x++)
 			deck.add(usedCards.get(x));
-		usedCards.clear();
-		
+		usedCards.clear();	
 	}
-	
+
 	// shuffle()
 	public void shuffle() {
-		
 		ArrayList<Card> temp = new ArrayList<>();
-		
-		while(!deck.isEmpty()) {
+		while(!deck.isEmpty()) 
 			temp.add(deck.remove(rand.nextInt(deck.size())));
-		}
-		
-		deck = temp;
-				
+		deck = temp;			
 	}
-	
-	
+
 	// Get player hand sum
 	public int getValueOfPlayerHand() {
 		int sum = 0;
-		
 		for(Card e: player)
 			sum += e.getValue(false);
-		
 		if(playerContainAce() && (sum>21)) {
 			sum = 0;
 			for(Card e: player)
 				sum += e.getValue(true);
 		}
-		
 		return sum;
 	}
-	
+
 	// Get Dealer hand sum
 	public int getValueOfDealerHand() {
 		int sum = 0;
-
 		for(Card e: dealer)
 			sum += e.getValue(false);
-
 		if(dealerContainAce() && (sum>21)) {
 			sum = 0;
 			for(Card e: dealer)
 				sum += e.getValue(true);
 		}
-
 		return sum;
 	}
-	
-	
 }
