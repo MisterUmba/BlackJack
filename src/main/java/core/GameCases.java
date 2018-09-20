@@ -59,4 +59,12 @@ public class GameCases {
 		}
 		return false;
 	}
+	
+	public boolean playerBust() {
+		return (deck.getValueOfPlayerHand()>21);
+	}
+	
+	public boolean dealerBust() {
+		return deck.getValueOfDealerHand() > 21;
+	}
 }

@@ -87,7 +87,7 @@ public class GameCasesTest extends TestCase{
 		GameCases gameCase = new GameCases(deck);
 		
 		deck.getDealer().add(deck.getDeck().get(0));
-		deck.getDealer().add(deck.getDeck().get(24));
+		deck.getDealer().add(deck.getDeck().get(23));
 		
 		assertEquals(true, gameCase.soft17());
 	}
