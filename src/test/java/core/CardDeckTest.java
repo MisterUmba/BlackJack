@@ -229,6 +229,37 @@ public class CardDeckTest extends TestCase{
 		
 		assertEquals(true, deck.dealerContainAce());
 	}
+	
+	public void testPlayerBust() {
+		CardDeck deck = new CardDeck();
+		GameCases gameCase = new GameCases(deck);
+		
+		deck.getPlayer().add(deck.getDeck().get(51));
+		deck.getPlayer().add(deck.getDeck().get(50));
+		deck.getPlayer().add(deck.getDeck().get(49));
+		
+		assertEquals(true, gameCase.playerBust());
+	}
 
+	public void testDealerBust() {
+		CardDeck deck = new CardDeck();
+		GameCases gameCase = new GameCases(deck);
+		
+		deck.getDealer().add(deck.getDeck().get(51));
+		deck.getDealer().add(deck.getDeck().get(50));
+		deck.getDealer().add(deck.getDeck().get(49));
+		
+		assertEquals(true, gameCase.dealerBust());
+	}
+	
+	public void testSoft17() {
+		CardDeck deck = new CardDeck();
+		GameCases gameCase = new GameCases(deck);
+		
+		deck.getDealer().add(deck.getDeck().get(0));
+		deck.getDealer().add(deck.getDeck().get(24));
+		
+		assertEquals(true, gameCase.soft17());
+	}
 
 }
