@@ -41,4 +41,22 @@ public class GameCases {
 			return true;
 		return false;
 	}
+	
+	public boolean soft17() {
+		CardDeck.Card temp = null;
+
+		if(deck.dealerContainAce() && deck.getValueOfDealerHand() == 17) {
+			for(CardDeck.Card e: deck.getDealer())
+				if(e.toString().contains("A"))
+					temp = e;
+			deck.getDealer().remove(temp);
+			if(deck.getValueOfDealerHand() == 6) {
+				deck.getDealer().add(temp);
+				return true;
+			}
+			deck.getDealer().add(temp);
+			return false;
+		}
+		return false;
+	}
 }

@@ -8,18 +8,10 @@ public class MainGameTest extends TestCase{
 		CardDeck deck = new CardDeck();
 		GameCases gameCases = new GameCases(deck);
 		MainGame mainGame = new MainGame();
+		
+		assertNotNull(mainGame);
 	}
 	
-	// Test FileInput
-	public void testFileInput() {
-		CardDeck deck = new CardDeck();
-		GameCases gameCases = new GameCases(deck);
-		MainGame mainGame = new MainGame();	
-		
-		mainGame.fileInput("C:\\Users\\Henri\\eclipse-workspace"
-				+ "\\BlackJack\\src\\main\\resources\\core\\Input Files\\File1.txt");
-		assertEquals(true, mainGame.deck.dealerWin());
-	}
 	
 	// Test Dealer Algorithm
 	public void testDealerAlgorithm() {
@@ -34,9 +26,10 @@ public class MainGameTest extends TestCase{
 		GameCases gameCases = new GameCases(deck);
 		MainGame mainGame = new MainGame();
 		
-		int hit = mainGame.deck.getPlayer().size();
+		int hit = deck.getPlayer().size();
+		deck.givePlayerCards();
 		
-		assertEquals(hit+1, mainGame.deck.getPlayer().size());
+		assertEquals(hit+1, deck.getPlayer().size());
 	}
 	
 	// Test Player Stand
@@ -52,9 +45,10 @@ public class MainGameTest extends TestCase{
 		GameCases gameCases = new GameCases(deck);
 		MainGame mainGame = new MainGame();
 		
-		int hit = mainGame.deck.getDealer().size();
+		int hit = deck.getDealer().size();
+		deck.giveDealerCards();
 		
-		assertEquals(hit+1, mainGame.deck.getDealer().size());
+		assertEquals(hit+1, deck.getDealer().size());
 	}
 	
 	// Dealer Stand
